@@ -1,19 +1,20 @@
 'use strict'
-const unils = require('./utils')
+const path = require('path')
+const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
-const merge = require('webpack-merge')
-const path = require('path')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+  mode: 'development',
   entry: path.join(__dirname, '../doc/main.js'),
   output: {
     path: path.resolve(__dirname, '../doc'),
@@ -31,13 +32,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
               loaders: {
                 scss: [
                   'vue-style-loader',
-                  MiniCssExtractPlugin.loader,
                   'css-loader',
                   'sass-loader'
                 ],
                 css: [
                   'vue-style-loader',
-                  MiniCssExtractPlugin.loader,
                   'css-loader'
                 ]
               }
@@ -48,7 +47,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       {
         test: /\.(css|scss)$/,
         use: [
-          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
           'postcss-loader'
@@ -65,17 +63,19 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     hot: true,
     compress: true,
-    host: HOST || (isdemoDev ? config.demo_dev.host : config.doc_dev.host),
-    port: PORT || (isdemoDev ? config.demo_dev.port : config.doc_dev.port),
+    host: '0.0.0.0',
+    port: '6060',
     open: true,
     overlay: config.demo_dev.errorOverlay
       ? { warnings: false, errors: true }
       : false,
-    publicPath: config.demo_dev.assetsPublicPath,
-    proxy: isdemoDev ? config.demo_dev.proxyTable : config.doc_dev.proxyTable,
+    publicPath: '/',
+    proxy: {
+
+    },
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
-      poll: isdemoDev ? config.demo_dev.poll : config.doc_dev.poll,
+      poll: false,
     }
   },
   plugins: [
@@ -83,14 +83,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: isdemoDev ? 'demo/index.html' : 'doc/index.html',
+      template: 'doc/index.html',
       inject: true
-    })
+    }),
+    new VueLoaderPlugin()
   ]
 })
 
 module.exports = new Promise((resolve, reject) => {
-  portfinder.basePort = process.env.PORT || (isdemoDev ? config.demo_dev.port : config.doc_dev.port)
+  portfinder.basePort = process.env.PORT || 6060
   portfinder.getPort((err, port) => {
     if (err) {
       reject(err)
@@ -105,7 +106,7 @@ module.exports = new Promise((resolve, reject) => {
         compilationSuccessInfo: {
           messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
         },
-        onErrors: (isdemoDev ? config.demo_dev.notifyOnErrors : config.doc_dev.notifyOnErrors)
+        onErrors: 1 === 1
           ? utils.createNotifierCallback()
           : undefined
       }))

@@ -8,6 +8,7 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const webpackConfig = merge(baseWebpackConfig, {
+  mode: 'production',
   entry: config[env].entry,
   output: {
     path: config[env].assetsRoot,
@@ -27,10 +28,6 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: '#source-map',
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(env),
-      'examplePath': JSON.stringify('http://47.98.169.84:8080/doc/index.html#')
-    }),
     new UglifyJsPlugin({
       uglifyOptions: {
         compress: {

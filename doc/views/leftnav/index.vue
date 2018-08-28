@@ -26,29 +26,28 @@
 </template>
 
 <script>
-  import { routes } from '../../router'
-  export default {
-    name: 'LeftNav',
-    data() {
-      return {
-        componentsList: routes.splice(3),
-        currentPath: ''
-      }
-    },
-    methods: {
-      changeNav(path){
-        console.log(path)
-        this.currentPath = path
-        this.$emit('change-nav', path)
-      }
-    },
-    components: {}
-  }
+import {routes} from '../../router'
+export default {
+  name: 'LeftNav',
+  data() {
+    return {
+      componentsList: routes.splice(3),
+      currentPath: ''
+    }
+  },
+  methods: {
+    changeNav(path){
+      this.currentPath = path
+      this.$emit('change-nav', path)
+    }
+  },
+  components: {}
+}
 </script>
 
 <style type="text/scss" lang="scss" rel="stylesheet/scss" scoped>
 
-  .left-nav{
+  .left-nav {
     background-color: #f9fafb;
     width: 250px;
     height: 100%;
@@ -58,7 +57,7 @@
     text-align: left;
     float: left;
 
-    .title{
+    .title {
       margin-left: 40px;
       margin-bottom: 20px;
       color: #455a64;
@@ -66,18 +65,18 @@
       font-weight: bold;
     }
 
-    li{
+    li {
       font-size: 14px;
       font-weight: 500;
       line-height: 42px;
       padding-left: 40px;
       opacity: 0.6;
 
-      a{
+      a {
         text-decoration: none;
         color: #4c555a;
 
-        &:hover, &.router-link-active{
+        &:hover, &.router-link-active {
           color: #4078c0 !important;
         }
       }

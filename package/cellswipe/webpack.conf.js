@@ -55,7 +55,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules|\.git|dist/,
-        use: 'babel-loader'
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015', 'stage-2'],
+          cacheDirectory: true
+        }
       },
       {
         test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
