@@ -9,45 +9,44 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const env = process.env.NODE_ENV
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
-  entry: path.join(__dirname, '../doc/main.js'),
+  entry: config[env].entry,
   output: {
-    path: path.resolve(__dirname, '../doc'),
+    path: config[env].output,
     filename: 'index.js'
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: config[env].devtool,
   module: {
     rules: utils.styleLoaders({
-      extract: false,
-      sourceMap: true,
-      usePostCSS: true,
-      isminimize: false
+      extract: config[env].extract,
+      sourceMap: config[env].sourceMap,
+      usePostCSS: config[env].usePostCSS,
+      isminimize: config[env].isminimize
     })
   },
   devServer: {
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
-        { from: /.*/, to: path.posix.join(config.demo_dev.assetsPublicPath, 'index.html') },
+        { from: /.*/, to: path.posix.join(config[env].assetsPublicPath, 'index.html') },
       ],
     },
     hot: true,
     compress: true,
-    host: '0.0.0.0',
-    port: '6060',
+    host: HOST || config[env].host,
+    port: PORT || config[env].port,
     open: true,
-    overlay: config.demo_dev.errorOverlay
+    overlay: config[env].errorOverlay
       ? { warnings: false, errors: true }
       : false,
     publicPath: '/',
-    proxy: {
-
-    },
+    proxy: config[env].proxyTable,
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: false,
@@ -58,7 +57,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'doc/index.html',
+      template: config[env].template,
       inject: true
     }),
     new VueLoaderPlugin()
@@ -66,7 +65,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 })
 
 module.exports = new Promise((resolve, reject) => {
-  portfinder.basePort = process.env.PORT || 6060
+  portfinder.basePort = process.env.PORT || config[env].port
   portfinder.getPort((err, port) => {
     if (err) {
       reject(err)
@@ -81,7 +80,7 @@ module.exports = new Promise((resolve, reject) => {
         compilationSuccessInfo: {
           messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
         },
-        onErrors: 1 === 1
+        onErrors: config[env].notifyOnErrors
           ? utils.createNotifierCallback()
           : undefined
       }))

@@ -1,5 +1,4 @@
 'use strict'
-const fs = require('fs')
 const path = require('path')
 const config = require('../config')
 const packageConfig = require('../package.json')
@@ -74,9 +73,10 @@ exports.styleLoaders = function (options) {
         loader: 'vue-loader',
         options: {
           loaders: exports.cssLoaders({
-            sourceMap: false,
+            sourceMap: options.sourceMap,
             extract: options.extract,
-            isminimize: options.isminimize
+            isminimize: options.isminimize,
+            usePostCSS: options.usePostCSS
           })
         }
       }]
