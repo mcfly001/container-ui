@@ -22,37 +22,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   devtool: 'cheap-module-eval-source-map',
   module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        use: [
-          {
-            loader: 'vue-loader',
-            options: {
-              loaders: {
-                scss: [
-                  'vue-style-loader',
-                  'css-loader',
-                  'sass-loader'
-                ],
-                css: [
-                  'vue-style-loader',
-                  'css-loader'
-                ]
-              }
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(css|scss)$/,
-        use: [
-          'css-loader',
-          'sass-loader',
-          'postcss-loader'
-        ]
-      },
-    ]
+    rules: utils.styleLoaders({
+      extract: false,
+      sourceMap: true,
+      usePostCSS: true,
+      isminimize: false
+    })
   },
   devServer: {
     clientLogLevel: 'warning',

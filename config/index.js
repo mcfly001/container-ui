@@ -2,7 +2,7 @@
 const path = require('path')
 
 module.exports = {
-  demo_dev: {
+  doc_build: {
     host: '0.0.0.0', // can be overwritten by process.env.HOST
     port: 7000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     assetsPublicPath: '/',
@@ -17,6 +17,10 @@ module.exports = {
     cssSourceMap: true,
     devtool: 'cheap-module-eval-source-map',
     assetsSubDirectory: 'static',
+
+    // path
+    assetsRoot: path.resolve(__dirname, '../doc/dist')
+
   },
   doc_dev: {
     host: '0.0.0.0', // can be overwritten by process.env.HOST
@@ -34,27 +38,17 @@ module.exports = {
     devtool: 'cheap-module-eval-source-map',
     assetsSubDirectory: 'static',
   },
-  production: {
-    entry: path.join(__dirname, '../src/index.js'),
-    template: '',
-    // path
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsPublicPath: '/',
-    sourceMap: true,
-    productionSourceMap: false,
-    devtool: true,
-  },
-  doc_production: {
+  demo_build: {
     entry: path.join(__dirname, '../doc/main.js'),
     template: 'doc/index.html',
     // path
-    assetsRoot: path.resolve(__dirname, '../doc/dist'),
+    assetsRoot: path.resolve(__dirname, '../demo/dist'),
     assetsPublicPath: '/',
     sourceMap: true,
     productionSourceMap: false,
     devtool: true
   },
-  demo_production: {
+  demo_dev: {
     entry: path.join(__dirname, '../demo/main.js'),
     template: 'demo/index.html',
     // path
