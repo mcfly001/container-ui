@@ -1,12 +1,12 @@
 require('shelljs/global');
 
-var config = require('../config');
-var ora = require('ora');
-var webpack = require('webpack');
-var webpackConfig = require('./webpack.prod.conf');
-var env = process.env.NODE_ENV
+const config = require('../config');
+const ora = require('ora');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.prod.conf');
+const env = process.env.NODE_ENV
 
-var spinner = ora('building for production...');
+const spinner = ora('building for production...');
 spinner.start();
 
 // 每次打包前先移除dist文件夹

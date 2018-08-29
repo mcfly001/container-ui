@@ -5,7 +5,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
-const packageName = process.argv.splice(2)[0]
+const packageConfig = require('./package.json')
+const name = packageConfig.name.replace('@2dfire/', '')
 
 module.exports = {
   mode: 'production',
@@ -14,7 +15,7 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     publicPath: '',
     filename: 'index.js',
-    library: 'OpenApp',
+    library: `${name}`,
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

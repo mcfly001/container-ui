@@ -7,9 +7,15 @@ const chalk = require('chalk')
 const demoRoute = require('../template/route/demoRoute')
 const docRoute = require('../template/route/docRoute')
 const packagesPath = path.join(__dirname, '../packages')
+const demopath = path.join(__dirname, '../demo')
+const docpath = path.join(__dirname, '../doc')
 const packageName = process.argv.splice(2)[0]
 
-rm('-rf', `../${packagesPath}/${packageName}`)
+console.log(demopath, docpath)
+
+rm('-rf', `${packagesPath}/${packageName}`)
+rm('-rf', `${demopath}/views/${packageName}.vue`)
+rm('-rf', `${docpath}/views/content/${packageName}.md`)
 
 fs.readdir(packagesPath, function (err, files) {
   if(err){
