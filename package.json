@@ -1,7 +1,7 @@
 {
   "name": "container-ui",
-  "version": "1.0.0",
-  "description": "dd",
+  "version": "0.0.1",
+  "description": "业务组件库",
   "main": "index.js",
   "dependencies": {
     "vue": "^2.5.17",
@@ -48,7 +48,9 @@
     "demo_build": "cross-env NODE_ENV=demo_build node build/build.js --mode production",
     "demo_dev": "cross-env NODE_ENV=demo_dev webpack-dev-server --inline --progress --mode development --config build/webpack.dev.conf.js",
     "installs": "node build/install.js",
-    "build_package": "node build/build_package.js"
+    "build_package": "node build/build_package.js",
+    "add": "node build/add_package.js",
+    "remove": "node build/remove_package.js"
   },
   "keywords": [],
   "author": "",

@@ -1,12 +1,9 @@
-import Vue from 'vue'
-import Router from 'vue-router'
 import Introduce from '../views/Introduce.vue'
 import Develop from '../views/Develop.vue'
+import test from '../views/test.vue'
 import cellswipe from '../views/cellswipe.vue'
 
-Vue.use(Router)
-
-let routes = [
+export const routes = [
   {
     path: '/',
     redirect: '/Introduce'
@@ -22,12 +19,13 @@ let routes = [
     component: Develop
   },
   {
+    path: '/test',
+    name: 'test',
+    component: test
+  },
+  {
     path: '/cellswipe',
     name: 'cellswipe',
     component: cellswipe
   }
 ]
-
-export default new Router({
-  routes
-})

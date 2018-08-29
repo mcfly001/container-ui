@@ -5,6 +5,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const packageName = process.argv.splice(2)[0]
+console.log(packageName)
 
 module.exports = {
   mode: 'production',
@@ -90,8 +92,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': path.join(__dirname, '../demo')
+      'vue$': 'vue/dist/vue.esm.js'
     }
   },
   optimization: {

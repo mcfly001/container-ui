@@ -28,11 +28,11 @@
     },
     mounted(){
       let path = url.parse(location.href).hash.replace('#', '')
-      this.src = urlConfig.JUMP_URL + path
+      this.src = urlConfig.IFRAME_URL + path
     },
     methods: {
       changeNav(src){
-        this.src = urlConfig.JUMP_URL + src
+        this.src = urlConfig.IFRAME_URL + src
       }
     },
     components: {

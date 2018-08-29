@@ -37,7 +37,7 @@
     "webpack-cli": "^3.1.0"
   },
   "scripts": {
-    "build": "webpack --progress --hide-modules --color --mode production --config webpack.conf.js"
+    "build": "webpack --progress --hide-modules --color --mode production --config ../webpack.conf.js"
   },
   "files": [
     "dist",
