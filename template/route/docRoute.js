@@ -2,8 +2,8 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-let defaultImportTep = `import Introduce from '../views/Introduce.vue'
-import Develop from '../views/Develop.vue'
+let defaultImportTep = `import Introduce from '../views/content/Introduce.md'
+import Develop from '../views/content/Develop.md'
 `
 
 let defaultRoute = `
@@ -25,7 +25,8 @@ export const routes = [
 
 module.exports = docRoute = function (files) {
   files.forEach((item, $index) => {
-    defaultImportTep += `import ${item} from '../views/${item}.vue'` + '\n'
+    if(item.indexOf('.') >= 0) return
+    defaultImportTep += `import ${item} from '../views/content/${item}.md'` + '\n'
     if($index === files.length - 1){
       defaultRoute += `
   {

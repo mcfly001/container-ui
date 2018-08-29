@@ -4,7 +4,7 @@ const fs = require('fs')
 const chalk = require('chalk')
 const packageName = process.argv.splice(2)[0]
 
-fs.readdir(process.cwd() + '/package', function (err, files) {
+fs.readdir(process.cwd() + '/packages', function (err, files) {
   if(err) throw err
   if(!packageName){
     console.log(chalk.red('请输入需要打包的组件的名字'))
@@ -12,7 +12,7 @@ fs.readdir(process.cwd() + '/package', function (err, files) {
   }
   if(files.indexOf(packageName) >= 0 ){
     spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ['run', 'build'], {
-      cwd: process.cwd() + `/package/${packageName}`,
+      cwd: process.cwd() + `/packages/${packageName}`,
       stdio: 'inherit'
     })
   }

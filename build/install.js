@@ -3,7 +3,7 @@ const fs = require('fs')
 const chalk = require('chalk')
 const { spawn } = require('child_process')
 const packageName = process.argv.splice(2)[0]
-const currentPath = process.cwd() + '/package'
+const currentPath = process.cwd() + '/packages'
 
 fs.readdir(currentPath, function (err, files) {
   if(err) throw err

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import CellSwipe from '../../package/cellswipe/src/components/CellSwipe.vue'
+import CellSwipe from '../../packages/cellswipe/src/components/CellSwipe.vue'
 export default {
   name: '',
   data() {

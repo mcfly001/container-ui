@@ -37,6 +37,7 @@ Vue.use(Router)
 
 module.exports = demoRoute = function (files) {
   files.forEach((item, $index) => {
+    if(item.indexOf('.') >= 0) return
     defaultImportTep += `import ${item} from '../views/${item}.vue'` + '\n'
     if($index === files.length - 1){
       defaultRoute += `
