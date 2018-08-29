@@ -1,6 +1,5 @@
 <template>
   <div class="left-nav">
-
     <div class="title">开发指南</div>
     <ul>
       <li @click="changeNav('/Introduce')" :class="{active: currentPath === '/Introduce'}">
@@ -11,7 +10,7 @@
       </li>
     </ul>
 
-    <div class="title">UI组件</div>
+    <div class="title">组件</div>
     <ul class="left-nav-ul">
       <li v-for="(item, $index) in componentsList"
           @click="changeNav(item.path)"
@@ -21,7 +20,6 @@
         </router-link>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -31,8 +29,8 @@ export default {
   name: 'LeftNav',
   data() {
     return {
-      componentsList: routes.splice(3),
-      currentPath: ''
+      currentPath: '',
+      componentsList: routes.splice(3)
     }
   },
   methods: {
@@ -40,8 +38,7 @@ export default {
       this.currentPath = path
       this.$emit('change-nav', path)
     }
-  },
-  components: {}
+  }
 }
 </script>
 

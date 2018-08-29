@@ -1,3 +1,6 @@
+const path = require('path')
+const env = process.env.NODE_ENV
+
 module.exports = {
   module: {
     rules: [
@@ -30,6 +33,7 @@ module.exports = {
           {
             loader: 'vue-markdown-loader/lib/markdown-compiler',
             options: {
+              raw: true,
               preprocess: function (MarkdownIt, Source) {
                 MarkdownIt.renderer.rules.table_open = function () {
                   return '<div class="table-container"><table class="table">'
@@ -48,7 +52,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'urlConfig': path.resolve(__dirname, '../config/' + env + '.js')
     }
   },
   performance: {

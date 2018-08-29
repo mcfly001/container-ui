@@ -6,9 +6,9 @@
       <div class="content-wrapper">
         <router-view />
       </div>
-      <!--<div class="iframe-case">-->
-        <!--<iframe :src="src" frameborder="0"></iframe>-->
-      <!--</div>-->
+      <div class="iframe-case">
+        <iframe :src="src" frameborder="0"></iframe>
+      </div>
     </div>
   </div>
 </template>
@@ -16,7 +16,9 @@
 <script>
   import TopHeader from './views/header/index.vue'
   import LeftNav from './views/leftnav/index.vue'
+  import urlConfig from 'urlConfig'
   import url from 'url'
+
   export default {
     name: 'App',
     data(){
@@ -26,11 +28,11 @@
     },
     mounted(){
       let path = url.parse(location.href).hash.replace('#', '')
-      //this.src = examplePath + path
+      this.src = urlConfig.JUMP_URL + path
     },
     methods: {
       changeNav(src){
-
+        this.src = urlConfig.JUMP_URL + src
       }
     },
     components: {

@@ -1,7 +1,7 @@
 <template>
   <div class="header-wrapper">
     <div class="header_logo"></div>
-    <span>mobile-ui</span>
+    <span>@2dfire-component-ui</span>
   </div>
 </template>
 
