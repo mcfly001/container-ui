@@ -4,11 +4,11 @@ const path = require('path')
 module.exports = {
   doc_build: {
     entry: path.join(__dirname, '../doc/main.js'),
-    output: path.resolve(__dirname, '../doc/dist'),
+    output: path.resolve(__dirname, '../doc/dist/doc'),
     extract: true,
     sourceMap: true,
     usePostCSS: true,
-    isminimize: true,
+    isminimize: false,
     devtool: 'source-map',
     template: path.join(__dirname, '../doc/index.html'),
     autoprefixer: true
@@ -34,7 +34,7 @@ module.exports = {
   },
   demo_build: {
     entry: path.join(__dirname, '../demo/main.js'),
-    output: path.resolve(__dirname, '../demo/dist'),
+    output: path.resolve(__dirname, '../demo/dist/demo'),
     extract: true,
     sourceMap: true,
     usePostCSS: true,

@@ -1,4 +1,4 @@
 export default {
-  IFRAME_URL: 'http://0.0.0.0:5000/#',
-  JUMP_URL: 'http://0.0.0.0:9000/#'
+  IFRAME_URL: 'http://10.1.6.28:2233/fed/static/doc/container-ui/demo/index.html#',
+  JUMP_URL: 'http://10.1.6.28:2233/fed/static/doc/component-ui/doc/index.html#'
 }

@@ -38,10 +38,10 @@ exports.cssLoaders = function (options) {
     // Extract CSS when that option is specified
     // (which is the case during production build)
 
-    if (!options.extract) {
-      return ['vue-style-loader'].concat(loaders)
+    if (options.extract) {
+      return [MiniCssExtractPlugin.loader].concat(loaders)
     } else {
-      return loaders
+      return ['vue-style-loader'].concat(loaders)
     }
   }
 
@@ -62,7 +62,7 @@ exports.styleLoaders = function (options) {
     const loader = loaders[extension]
     output.push({
       test: new RegExp('\\.' + extension + '$'),
-      use: options.extract ? [MiniCssExtractPlugin.loader, loader[0]] : loader
+      use: loader
     })
   }
 
