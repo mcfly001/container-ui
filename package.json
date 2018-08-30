@@ -22,6 +22,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "fs-extra": "^7.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.2",
     "node-notifier": "^5.2.1",
@@ -47,7 +48,6 @@
     "doc_dev": "cross-env NODE_ENV=doc_dev webpack-dev-server --inline --progress --mode development --config build/webpack.dev.conf.js",
     "demo_build": "cross-env NODE_ENV=demo_build node build/build.js --mode production",
     "demo_dev": "cross-env NODE_ENV=demo_dev webpack-dev-server --inline --progress --mode development --config build/webpack.dev.conf.js",
-    "installs": "node build/install.js",
     "build_package": "node build/build_package.js",
     "add": "node build/add_package.js",
     "remove": "node build/remove_package.js"

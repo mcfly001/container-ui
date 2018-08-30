@@ -11,21 +11,20 @@ const demopath = path.join(__dirname, '../demo')
 const docpath = path.join(__dirname, '../doc')
 const packageName = process.argv.splice(2)[0]
 
-console.log(demopath, docpath)
-
-rm('-rf', `${packagesPath}/${packageName}`)
-rm('-rf', `${demopath}/views/${packageName}.vue`)
-rm('-rf', `${docpath}/views/content/${packageName}.md`)
-
 fs.readdir(packagesPath, function (err, files) {
   if(err){
     console.log(chalk.red('err', err))
   }
-  if(!files.includes(packageName)){
+  if(files.includes(packageName)){
+    rm('-rf', `${packagesPath}/${packageName}`)
+    rm('-rf', `${demopath}/views/${packageName}.vue`)
+    rm('-rf', `${docpath}/views/content/${packageName}.md`)
+    let index = files.indexOf(packageName)
+    files.splice(index, 1)
     demoRoute(files)
     docRoute(files)
   }
   else{
-    console.log(chalk.red('已存在同名包，请修改包名称'))
+    console.log(chalk.red('找不到要删除的组件，请检查组件名'))
   }
 })

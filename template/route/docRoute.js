@@ -52,9 +52,9 @@ module.exports = docRoute = function (files) {
   fs.writeFile(process.cwd() + '/doc/router/index.js', str, 'utf8', function (err) {
 
     if(err){
-      console.log(chalk.red('复制doc/router/index.js错误'))
+      console.log(chalk.red('重新生成doc/router/index.js错误'))
       return
     }
-    console.log(chalk.green('复制doc/router/index.js成功'))
+    console.log(chalk.green('重新生成doc/router/index.js成功'))
   })
 }

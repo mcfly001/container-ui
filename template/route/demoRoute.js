@@ -64,9 +64,9 @@ module.exports = demoRoute = function (files) {
   fs.writeFile(process.cwd() + '/demo/router/index.js', str, 'utf8', function (err) {
 
     if(err){
-      console.log(chalk.red('复制demo/router/index.js错误'))
+      console.log(chalk.red('重新生成demo/router/index.js错误'))
       return
     }
-    console.log(chalk.green('复制demo/router/index.js成功'))
+    console.log(chalk.green('重新生成demo/router/index.js成功'))
   })
 }
