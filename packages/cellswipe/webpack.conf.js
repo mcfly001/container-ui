@@ -5,7 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
-const packageConfig = require('./package.json')
+const packageConfig = require('../../template/pack_template/package.json')
 const name = packageConfig.name.replace('@2dfire/', '')
 
 module.exports = {

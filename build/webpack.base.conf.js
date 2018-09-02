@@ -6,8 +6,8 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules|\.git|dist/,
         loader: 'babel-loader',
+        exclude: /node_modules|\.git|dist/,
         options: {
           presets: ['es2015', 'stage-2'],
           cacheDirectory: true
