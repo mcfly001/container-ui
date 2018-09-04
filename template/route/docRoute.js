@@ -1,6 +1,7 @@
 // 拼接doc/router下面的index.js文件
 const fs = require('fs')
 const chalk = require('chalk')
+const { tranformStr } = require('../utils.js')
 
 let defaultImportTep = `import Introduce from '../views/content/Introduce.md'
 import Develop from '../views/content/Develop.md'
@@ -26,21 +27,21 @@ export const routes = [
 module.exports = docRoute = function (files) {
   files.forEach((item, $index) => {
     if(item.indexOf('.') >= 0) return
-    defaultImportTep += `import ${item} from '../views/content/${item}.md'` + '\n'
+    defaultImportTep += `import ${tranformStr(item)} from '../views/content/${tranformStr(item)}.md'` + '\n'
     if($index === files.length - 1){
       defaultRoute += `
   {
-    path: '/${item}',
-    name: '${item}',
-    component: ${item}
+    path: '/${tranformStr(item)}',
+    name: '${tranformStr(item)}',
+    component: ${tranformStr(item)}
   }`
     }
     else{
       defaultRoute += `
   {
-    path: '/${item}',
-    name: '${item}',
-    component: ${item}
+    path: '/${tranformStr(item)}',
+    name: '${tranformStr(item)}',
+    component: ${tranformStr(item)}
   },`
     }
   })

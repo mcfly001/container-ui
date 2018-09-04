@@ -2,8 +2,8 @@
 ##### 引入依赖
 ``` javascript
 // 在main.js里面引入
-import { XaxisScroll } from '@2dfire/mobile-ui'
-import '@2dfire/mobile-ui/lib/index.css'
+import { XaxisScroll } from '@2dfire/container-ui'
+import '@2dfire/container-ui/lib/index.css'
 
 Vue.component(XaxisScroll.name, XaxisScroll)
 ```

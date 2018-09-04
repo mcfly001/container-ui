@@ -45,8 +45,8 @@
   },
   "scripts": {
     "doc_build": "cross-env NODE_ENV=doc_build node build/build.js --mode production",
-    "doc_dev": "cross-env NODE_ENV=doc_dev webpack-dev-server --inline --progress --mode development --config build/webpack.dev.conf.js",
     "demo_build": "cross-env NODE_ENV=demo_build node build/build.js --mode production",
+    "doc_dev": "cross-env NODE_ENV=doc_dev webpack-dev-server --inline --progress --mode development --config build/webpack.dev.conf.js",
     "demo_dev": "cross-env NODE_ENV=demo_dev webpack-dev-server --inline --progress --mode development --config build/webpack.dev.conf.js",
     "build_package": "node build/build_package.js",
     "add": "node build/add_package.js",

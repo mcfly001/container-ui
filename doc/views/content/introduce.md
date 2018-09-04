@@ -18,7 +18,7 @@ npm install babel-plugin-component --save-dev
         xxx,
         [
             "component", {
-                "libraryName": "@2dfire/mobile-ui",
+                "libraryName": "@2dfire/container-ui",
                 "style": true,
             },
             "@2dfire/mobile-ui"

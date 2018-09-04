@@ -1,6 +1,7 @@
 // 拼接demo/router下面的index.js文件
 const fs = require('fs')
 const chalk = require('chalk')
+const { tranformStr } = require('../utils.js')
 
 let defaultImportTep = `import Vue from 'vue'
 import Router from 'vue-router'
@@ -38,21 +39,21 @@ Vue.use(Router)
 module.exports = demoRoute = function (files) {
   files.forEach((item, $index) => {
     if(item.indexOf('.') >= 0) return
-    defaultImportTep += `import ${item} from '../views/${item}.vue'` + '\n'
+    defaultImportTep += `import ${tranformStr(item)} from '../views/${tranformStr(item)}.vue'` + '\n'
     if($index === files.length - 1){
       defaultRoute += `
   {
-    path: '/${item}',
-    name: '${item}',
-    component: ${item}
+    path: '/${tranformStr(item)}',
+    name: '${tranformStr(item)}',
+    component: ${tranformStr(item)}
   }`
     }
     else{
       defaultRoute += `
   {
-    path: '/${item}',
-    name: '${item}',
-    component: ${item}
+    path: '/${tranformStr(item)}',
+    name: '${tranformStr(item)}',
+    component: ${tranformStr(item)}
   },`
     }
   })
