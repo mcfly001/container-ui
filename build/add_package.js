@@ -2,8 +2,10 @@
 const fs = require('fs')
 const path = require('path')
 const chalk = require('chalk')
-const demoRoute = require('../template/route/demoRoute')
-const docRoute = require('../template/route/docRoute')
+const generate_demoRoute = require('../template/route/demoRoute')
+const generate_docRoute = require('../template/route/docRoute')
+const generate_index = require('../template/common/index_js')
+const generate_vue = require('../template/common/tep_vue')
 const packagesPath = path.join(__dirname, '../packages')
 const argv = process.argv.splice(2)
 const { copy } = require('fs-extra')
@@ -24,11 +26,12 @@ fs.readdir(packagesPath, function (err, files) {
     console.log(chalk.red('err', err))
   }
   if(!files.includes(packageName)){
-    demoRoute(files.concat(packageName))
-    docRoute(files.concat(packageName))
+    generate_demoRoute(files.concat(packageName))
+    generate_docRoute(files.concat(packageName))
   }
   else{
     console.log(chalk.red('已存在同名包，请修改包名称'))
+    return
   }
 })
 
@@ -54,14 +57,18 @@ fs.writeFileSync(`${demoPath}/${tranformStr(packageName)}.vue`, templateVue)
 fs.writeFileSync(`${docPath}/${tranformStr(packageName)}.md`, '请在这里输入组件文档内容')
 
 // 在package下添加新组件的文件
-let src = path.join(__dirname, '../template/pack_template')
+let src = path.join(__dirname, '../template/copy')
 let dist = path.join(__dirname, `../packages/${tranformStr(packageName)}`)
+
 copy(src, dist).then(() => {
-  // 修改components 下面的组件名
-  let renamePath = path.join(__dirname, `../packages/${tranformStr(packageName)}/src/components`)
-  fs.renameSync(renamePath + '/HelloWorld.vue', renamePath + `/${tranformStr(packageName)}.vue`)
+  // 新增components 下面的组件名
+  let rvuePath = path.join(__dirname, `../packages/${tranformStr(packageName)}/src/components`)
+  fs.writeFile(rvuePath + `/${tranformStr(packageName)}.vue`, generate_vue(tranformStr(packageName)))
+  // 新增index.js 文件
+  fs.writeFile(dist + '/src/index.js', generate_index(tranformStr(packageName)))
   // 生成package.json文件
-  fs.readFile(process.cwd() + '/template/pack_template/package.json', function (err, data) {
+  fs.readFile(process.cwd() + '/template/copy/package.json', function (err, data) {
+    console.log('ddddddddddd', tranformStr(packageName))
     if(err){
       console.log(err)
       return
@@ -71,9 +78,9 @@ copy(src, dist).then(() => {
     let obj = {}
     for(let i=0; i<keys.length; i++){
       if(keys[i] === 'name'){
-        obj[keys[i]] = `@2dfire/${tranformStr(packageName)}`
+        obj['name'] = `@2dfire/${tranformStr(packageName)}`
       }
-      if(keys[i] === 'author'){
+      else if(keys[i] === 'author'){
         obj[keys[i]] = {
           "name": author,
           "email": author + '@2dfire.com'
@@ -85,7 +92,7 @@ copy(src, dist).then(() => {
     }
     fs.writeFile(process.cwd() + `/packages/${tranformStr(packageName)}/package.json`, JSON.stringify(obj, null, '\t'), 'utf8', function (err) {
       if(err){
-        console.log(chalk.red('复制doc/router/index.js错误'))
+        console.log(chalk.red('复制错误'))
         return
       }
 

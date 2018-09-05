@@ -1,4 +1,5 @@
-<template>
+module.exports = function (name) {
+  return `<template>
   <div>
 
   </div>
@@ -6,7 +7,7 @@
 
 <script>
 export default {
-  name: '',
+  name: '${name}',
   data() {
     return {}
   },
@@ -24,4 +25,5 @@ export default {
 <style type="text/scss" lang="scss" rel="stylesheet/scss" scoped>
 
 </style>
-
+`
+}

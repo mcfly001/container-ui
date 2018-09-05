@@ -36,7 +36,7 @@ let useStr = `
 Vue.use(Router)
 `
 
-module.exports = demoRoute = function (files) {
+module.exports = function (files) {
   files.forEach((item, $index) => {
     if(item.indexOf('.') >= 0) return
     defaultImportTep += `import ${tranformStr(item)} from '../views/${tranformStr(item)}.vue'` + '\n'

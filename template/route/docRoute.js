@@ -24,7 +24,7 @@ export const routes = [
     component: Develop
   },`
 
-module.exports = docRoute = function (files) {
+module.exports = function (files) {
   files.forEach((item, $index) => {
     if(item.indexOf('.') >= 0) return
     defaultImportTep += `import ${tranformStr(item)} from '../views/content/${tranformStr(item)}.md'` + '\n'
