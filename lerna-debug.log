@@ -1,0 +1,13 @@
+12 error Error: Command failed: git rev-list --left-right --count origin/douchi...douchi
+12 error fatal: ambiguous argument 'origin/douchi...douchi': unknown revision or path not in the working tree.
+12 error Use '--' to separate paths from revisions, like this:
+12 error 'git <command> [<revision>...] -- [<file>...]'
+12 error
+12 error
+12 error     at makeError (/Users/zyj/.nvm/versions/node/v8.4.0/lib/node_modules/lerna/node_modules/execa/index.js:172:9)
+12 error     at Function.module.exports.sync (/Users/zyj/.nvm/versions/node/v8.4.0/lib/node_modules/lerna/node_modules/execa/index.js:341:15)
+12 error     at Object.execSync (/Users/zyj/.nvm/versions/node/v8.4.0/lib/node_modules/lerna/node_modules/@lerna/child-process/index.js:22:16)
+12 error     at countLeftRight (/Users/zyj/.nvm/versions/node/v8.4.0/lib/node_modules/lerna/node_modules/@lerna/version/lib/is-behind-upstream.js:30:31)
+12 error     at isBehindUpstream (/Users/zyj/.nvm/versions/node/v8.4.0/lib/node_modules/lerna/node_modules/@lerna/version/lib/is-behind-upstream.js:14:27)
+12 error     at VersionCommand.initialize (/Users/zyj/.nvm/versions/node/v8.4.0/lib/node_modules/lerna/node_modules/@lerna/version/index.js:109:7)
+12 error     at Promise.resolve.then (/Users/zyj/.nvm/versions/node/v8.4.0/lib/node_modules/lerna/node_modules/@lerna/command/index.js:245:24)
