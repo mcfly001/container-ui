@@ -1,6 +1,6 @@
 {
 	"name": "@2dfire/Test",
-	"version": "0.0.2",
+	"version": "0.0.1",
 	"description": "This is a UI repository based by vue. ",
 	"main": "dist/index.js",
 	"author": {
@@ -14,6 +14,7 @@
 	"publishConfig": {
 		"registry": "http://10.1.6.28"
 	},
+	"private": true,
 	"devDependencies": {
 		"autoprefixer": "^8.3.0",
 		"babel-core": "^6.0.0",
