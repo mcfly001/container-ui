@@ -1,6 +1,6 @@
 {
-	"name": "2dfire-container-ui",
-	"version": "0.0.2",
+	"name": "@2dfire/CellSwipe",
+	"version": "0.0.1",
 	"description": "This is a UI repository based by vue. ",
 	"main": "dist/index.js",
 	"author": {

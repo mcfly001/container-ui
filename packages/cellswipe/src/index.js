@@ -1,6 +1,4 @@
 import CellSwipe from './components/CellSwipe.vue'
-import './index.css'
-import './test.scss'
 
 const install = function(Vue, options = {}){
   if(install.installed) return

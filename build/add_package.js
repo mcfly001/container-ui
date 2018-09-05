@@ -17,7 +17,7 @@ const author = argv[1]
 
 if(!author){
   console.log(chalk.red('请输入作者花名'))
-  return 
+  return
 }
 
 // 重新生成路由
@@ -97,10 +97,10 @@ copy(src, dist).then(() => {
       }
 
       // 安装依赖包
-      spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ['install'], {
-        cwd: `${currentPath}/${tranformStr(packageName)}`,
-        stdio: 'inherit'
-      })
+      // spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ['install'], {
+      //   cwd: `${currentPath}/${tranformStr(packageName)}`,
+      //   stdio: 'inherit'
+      // })
     })
   })
 })

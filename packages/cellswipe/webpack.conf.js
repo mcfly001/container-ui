@@ -29,11 +29,13 @@ module.exports = {
             options: {
               loaders: {
                 scss: [
+                  'vue-style-loader',
                   MiniCssExtractPlugin.loader,
                   'css-loader',
                   'sass-loader'
                 ],
                 css: [
+                  'vue-style-loader',
                   MiniCssExtractPlugin.loader,
                   'css-loader'
                 ]
