@@ -1,6 +1,6 @@
 {
 	"name": "@2dfire/OpenApp",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "This is a UI repository based by vue. ",
 	"main": "dist/index.js",
 	"author": {
@@ -14,7 +14,7 @@
 	"publishConfig": {
 		"registry": "http://10.1.6.28"
 	},
-  "private": true,
+	"private": true,
 	"devDependencies": {
 		"autoprefixer": "^8.3.0",
 		"babel-core": "^6.0.0",
