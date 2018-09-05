@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Introduce from '../views/Introduce.vue'
 import Develop from '../views/Develop.vue'
-import CellSwipe from '../views/CellSwipe.vue'
+import OpenApp from '../views/OpenApp.vue'
 
 Vue.use(Router)
 
@@ -22,9 +22,9 @@ let routes = [
     component: Develop
   },
   {
-    path: '/CellSwipe',
-    name: 'CellSwipe',
-    component: CellSwipe
+    path: '/OpenApp',
+    name: 'OpenApp',
+    component: OpenApp
   }
 ]
 

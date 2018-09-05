@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'CellSwipe',
+  name: 'OpenApp',
   data(){
     return {
       

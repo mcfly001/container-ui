@@ -1,6 +1,6 @@
 import Introduce from '../views/content/Introduce.md'
 import Develop from '../views/content/Develop.md'
-import CellSwipe from '../views/content/CellSwipe.md'
+import OpenApp from '../views/content/OpenApp.md'
 
 export const routes = [
   {
@@ -18,8 +18,8 @@ export const routes = [
     component: Develop
   },
   {
-    path: '/CellSwipe',
-    name: 'CellSwipe',
-    component: CellSwipe
+    path: '/OpenApp',
+    name: 'OpenApp',
+    component: OpenApp
   }
 ]

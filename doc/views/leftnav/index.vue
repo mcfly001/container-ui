@@ -3,7 +3,7 @@
     <div class="title">开发指南</div>
     <ul>
       <li @click="changeNav('/Introduce')" :class="{active: currentPath === '/Introduce'}">
-        <router-link to="/introduce">使用指南</router-link>
+        <router-link to="/introduce">简介</router-link>
       </li>
       <li @click="changeNav('/Develop')" :class="{active: currentPath === '/Develop'}">
         <router-link to="/develop">开发指南</router-link>
