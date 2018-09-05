@@ -68,7 +68,7 @@ copy(src, dist).then(() => {
   fs.writeFile(dist + '/src/index.js', generate_index(tranformStr(packageName)))
   // 生成package.json文件
   fs.readFile(process.cwd() + '/template/copy/package.json', function (err, data) {
-    console.log('ddddddddddd', tranformStr(packageName))
+
     if(err){
       console.log(err)
       return
