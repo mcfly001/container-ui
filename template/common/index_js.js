@@ -11,7 +11,6 @@ if(typeof window !== 'undefined' && window.Vue){
 }
 
 module.exports = {
-  install,
   ${name}
 }`
 }
