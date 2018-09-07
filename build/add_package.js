@@ -42,7 +42,6 @@ const templateVue = `<template>
 
 <script>
 export default {
-  name: '${tranformStr(packageName)}',
   data(){
     return {
       

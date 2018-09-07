@@ -4,6 +4,7 @@ const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
+const { getLocalIp } = require('../config/utils')
 const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
@@ -60,7 +61,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: config[env].template,
       inject: true
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      "localIp": JSON.stringify(getLocalIp())
+    })
   ]
 })
 

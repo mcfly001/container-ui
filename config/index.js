@@ -1,5 +1,6 @@
 'use strict'
 const path = require('path')
+const { getLocalIp } = require('./utils')
 
 module.exports = {
   doc_build: {
@@ -18,7 +19,7 @@ module.exports = {
     output: path.join(__dirname, '../doc'),
     devtool: 'cheap-module-eval-source-map',
     template: path.join(__dirname, '../doc/index.html'),
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: getLocalIp(), // can be overwritten by process.env.HOST
     port: 4000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     assetsPublicPath: '/',
     proxyTable: {
@@ -48,7 +49,7 @@ module.exports = {
     output: path.join(__dirname, '../demo'),
     devtool: 'cheap-module-eval-source-map',
     template: path.join(__dirname, '../demo/index.html'),
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: getLocalIp(), // can be overwritten by process.env.HOST
     port: 5000,
     assetsPublicPath: '/',
     proxyTable: {
