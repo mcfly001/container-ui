@@ -12,7 +12,22 @@ npm install @2dfire/OpenApp --save-dev
 // 在全局引用
 import Vue from 'vue'
 import OpenApp from '@2dfire/OpenApp'
-Vue.use(OpenApp)
+Vue.component(OpenApp.name, OpenApp)
+```
+
+``` javascript
+// 组件内引用
+<script>
+import OpenApp from '@2dfire/OpenApp'
+export default{
+    data(){
+        return {}
+    },
+    components: {
+        OpenApp
+    }
+}
+</script>
 ```
 
 ### 配置项

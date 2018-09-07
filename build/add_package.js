@@ -63,9 +63,9 @@ let dist = path.join(__dirname, `../packages/${tranformStr(packageName)}`)
 copy(src, dist).then(() => {
   // 新增components 下面的组件名
   let rvuePath = path.join(__dirname, `../packages/${tranformStr(packageName)}/src/components`)
-  fs.writeFile(rvuePath + `/${tranformStr(packageName)}.vue`, generate_vue(tranformStr(packageName)))
+  fs.writeFileSync(rvuePath + `/${tranformStr(packageName)}.vue`, generate_vue(tranformStr(packageName)))
   // 新增index.js 文件
-  fs.writeFile(dist + '/src/index.js', generate_index(tranformStr(packageName)))
+  fs.writeFileSync(dist + '/src/index.js', generate_index(tranformStr(packageName)))
   // 生成package.json文件
   fs.readFile(process.cwd() + '/template/copy/package.json', function (err, data) {
 

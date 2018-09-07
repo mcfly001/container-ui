@@ -1,13 +1,12 @@
 import OpenApp from './components/OpenApp.vue'
 
-const openApp = {
-  install(Vue, options){
-    Vue.component('OpenApp', OpenApp)
-  }
+const install = function (Vue, options = {}) {
+  if (install.installed) return
+  Vue.component(OpenApp.name, OpenApp)
 }
 
 if(typeof winodw !== 'undefined' && window.Vue){
-  window.Vue.use(OpenApp)
+  install(window.Vue)
 }
 
-export default openApp
+export default OpenApp
