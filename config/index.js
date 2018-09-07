@@ -18,7 +18,7 @@ module.exports = {
     output: path.join(__dirname, '../doc'),
     devtool: 'cheap-module-eval-source-map',
     template: path.join(__dirname, '../doc/index.html'),
-    host: '0.0.0.0', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 4000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     assetsPublicPath: '/',
     proxyTable: {
@@ -48,7 +48,7 @@ module.exports = {
     output: path.join(__dirname, '../demo'),
     devtool: 'cheap-module-eval-source-map',
     template: path.join(__dirname, '../demo/index.html'),
-    host: '0.0.0.0', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 5000,
     assetsPublicPath: '/',
     proxyTable: {
