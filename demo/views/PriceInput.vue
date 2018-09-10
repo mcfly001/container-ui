@@ -1,6 +1,7 @@
 <template>
   <div>
     <price-input @ok="comfirmPrice"
+                 :min="0"
                  :fixed="4">
     </price-input>
   </div>
