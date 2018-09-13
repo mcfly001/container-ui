@@ -1,6 +1,0 @@
-29 error Error: Command failed: git tag @2dfire/PriceInput@0.0.2 -m @2dfire/PriceInput@0.0.2
-29 error fatal: tag '@2dfire/PriceInput@0.0.2' already exists
-29 error
-29 error     at makeError (/Users/zyj/.nvm/versions/node/v8.4.0/lib/node_modules/lerna/node_modules/execa/index.js:172:9)
-29 error     at Promise.all.then.arr (/Users/zyj/.nvm/versions/node/v8.4.0/lib/node_modules/lerna/node_modules/execa/index.js:277:16)
-29 error     at <anonymous>
