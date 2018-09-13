@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Introduce from '../views/Introduce.vue'
 import Develop from '../views/Develop.vue'
 import OpenApp from '../views/OpenApp.vue'
+import InputPrice from '../views/InputPrice.vue'
 
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ let routes = [
     path: '/OpenApp',
     name: 'OpenApp',
     component: OpenApp
+  },
+  {
+    path: '/InputPrice',
+    name: 'InputPrice',
+    component: InputPrice
   }
 ]
 
