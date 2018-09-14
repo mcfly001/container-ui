@@ -1,4 +1,6 @@
 const path = require('path')
+const config = require('../config')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const env = process.env.NODE_ENV
 
 module.exports = {
@@ -57,6 +59,15 @@ module.exports = {
       'urlConfig': path.resolve(__dirname, '../config/' + env + '.js')
     }
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: config[env].fromDirectory,
+        to: config[env].assetsSubDirectory,
+        ignore: ['.*']
+      }
+    ])
+  ],
   performance: {
     hints: false
   }

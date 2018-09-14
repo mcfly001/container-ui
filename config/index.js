@@ -12,7 +12,9 @@ module.exports = {
     isminimize: false,
     devtool: 'source-map',
     template: path.join(__dirname, '../doc/index.html'),
-    autoprefixer: true
+    autoprefixer: true,
+    assetsSubDirectory: path.join(__dirname, '../doc/dist/doc/static'),
+    fromDirectory: path.join(__dirname, '../doc/static')
   },
   doc_dev: {
     entry: path.join(__dirname, '../doc/main.js'),
@@ -31,7 +33,8 @@ module.exports = {
     isminimize: false,
     errorOverlay: true,
     notifyOnErrors: true,
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: path.join(__dirname, '../doc/static'),
+    fromDirectory: path.join(__dirname, '../doc/static')
   },
   demo_build: {
     entry: path.join(__dirname, '../demo/main.js'),
@@ -42,7 +45,9 @@ module.exports = {
     isminimize: true,
     devtool: 'source-map',
     template: path.join(__dirname, '../demo/index.html'),
-    autoprefixer: true
+    autoprefixer: true,
+    assetsSubDirectory: path.join(__dirname, '../demo/dist/demo/static'),
+    fromDirectory: path.join(__dirname, '../demo/static')
   },
   demo_dev: {
     entry: path.join(__dirname, '../demo/main.js'),
@@ -60,6 +65,8 @@ module.exports = {
     usePostCSS: true,
     isminimize: false,
     errorOverlay: true,
-    notifyOnErrors: true
+    notifyOnErrors: true,
+    assetsSubDirectory: path.join(__dirname, '../demo/static'),
+    fromDirectory: path.join(__dirname, '../demo/static')
   }
 }
