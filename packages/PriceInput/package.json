@@ -1,6 +1,6 @@
 {
 	"name": "@2dfire/PriceInput",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "This is a UI repository based by vue. ",
 	"main": "dist/index.js",
 	"author": {
