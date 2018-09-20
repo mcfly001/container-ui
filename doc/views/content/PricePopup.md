@@ -50,7 +50,7 @@ export default{
  <div>
     <price-input :show.sync="show"
                  :value="value"
-                 @input-focus="focusEvent">
+                 @on-focus="focusEvent">
     </price-input>
     <price-popup :show="show"
                  :comfim-disabled="comfimDisabled"

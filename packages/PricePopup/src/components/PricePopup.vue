@@ -3,7 +3,6 @@
     <ul class="value-list">
       <li v-for="value in values"
           :key="value"
-          :class="{icon: value === 'icon'}"
           @click.stop="changeValue(value)">
         <span v-if="value !== 'icon'">{{ value }}</span>
         <div v-if="value === 'icon'" class="icon"></div>
@@ -88,6 +87,7 @@ export default {
         border-top: 1px solid #cdcdcf;
         line-height: 50px;
         font-weight: bold;
+        list-style-type: none;
 
         .icon{
           width: 32px;
