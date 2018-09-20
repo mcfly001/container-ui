@@ -37,15 +37,19 @@ fs.readdir(packagesPath, function (err, files) {
 
 // 生成.vue 以及 .md文件
 const templateVue = `<template>
-
+ <${packageName}></${packageName}>
 </template>
 
 <script>
+import ${tranformStr(packageName)} from 'packages/${tranformStr(packageName)}/src/index.js'
 export default {
   data(){
     return {
       
     }
+  },
+  components: {
+    ${tranformStr(packageName)}
   }
 }
 </script>
@@ -60,9 +64,12 @@ let src = path.join(__dirname, '../template/copy')
 let dist = path.join(__dirname, `../packages/${tranformStr(packageName)}`)
 
 copy(src, dist).then(() => {
+  // 这里这样是为了兼容window
+  let basePath = path.join(__dirname, '../packages')
+  fs.mkdirSync(`${basePath}/${tranformStr(packageName)}/src`)
+  fs.mkdirSync(`${basePath}/${tranformStr(packageName)}/src/components`)
   // 新增components 下面的组件名
-  let rvuePath = path.join(__dirname, `../packages/${tranformStr(packageName)}/src/components`)
-  fs.writeFileSync(rvuePath + `/${tranformStr(packageName)}.vue`, generate_vue(tranformStr(packageName)))
+  fs.writeFileSync(`${basePath}/${tranformStr(packageName)}/src/components/${tranformStr(packageName)}.vue`, generate_vue(tranformStr(packageName)))
   // 新增index.js 文件
   fs.writeFileSync(dist + '/src/index.js', generate_index(tranformStr(packageName)))
   // 生成package.json文件
