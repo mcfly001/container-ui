@@ -45,7 +45,7 @@
   },
   "files": [
     "dist",
-    "lib",
+    "src",
     "packages",
     "package.json",
     "README.md"
