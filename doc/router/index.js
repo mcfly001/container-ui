@@ -1,7 +1,8 @@
 import Introduce from '../views/content/Introduce.md'
 import Develop from '../views/content/Develop.md'
 import OpenApp from '../views/content/OpenApp.md'
-import InputPrice from '../views/content/InputPrice.md'
+import PriceInput from '../views/content/PriceInput.md'
+import PricePopup from '../views/content/PricePopup.md'
 
 export const routes = [
   {
@@ -24,8 +25,13 @@ export const routes = [
     component: OpenApp
   },
   {
-    path: '/InputPrice',
-    name: 'InputPrice',
-    component: InputPrice
+    path: '/PriceInput',
+    name: 'PriceInput',
+    component: PriceInput
+  },
+  {
+    path: '/PricePopup',
+    name: 'PricePopup',
+    component: PricePopup
   }
 ]

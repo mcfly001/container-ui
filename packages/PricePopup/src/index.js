@@ -1,12 +1,12 @@
-import InputPrice from './components/InputPrice.vue'
+import PricePopup from './components/PricePopup.vue'
 
 const install = function(Vue, options = {}){
   if(install.installed) return
-  Vue.component(InputPrice.name, InputPrice)
+  Vue.component(PricePopup.name, PricePopup)
 }
 
 if(typeof window !== 'undefined' && window.Vue){
   install(window.Vue)
 }
 
-export default InputPrice
+export default PricePopup
