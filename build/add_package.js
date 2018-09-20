@@ -9,9 +9,7 @@ const generate_vue = require('../template/common/tep_vue')
 const packagesPath = path.join(__dirname, '../packages')
 const argv = process.argv.splice(2)
 const { copy } = require('fs-extra')
-const { spawn } = require('child_process')
 const { tranformStr } = require('../template/utils.js')
-const currentPath = process.cwd() + '/packages'
 const packageName = argv[0]
 const author = argv[1]
 
