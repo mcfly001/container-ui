@@ -1,5 +1,5 @@
 <template>
-  <div id="mask" v-show="showfloat">
+  <div id="mask" v-show="showfloat" @click="closeMask">
     <div class="hello" :style="bgimg"></div>
     <div class="array"></div>
     <p>点击这里的“在浏览器中打开”</p>
@@ -26,15 +26,16 @@ export default {
         backgroundImage: "url(" + this.maskbgurl + "),url(" + require("../images/hello.png") + ")"
       }
     }
+  },
+  methods: {
+    closeMask(){
+      this.$emit('close-mask')
+    }
   }
 }
 </script>
 
-<style type="text/scss" lang="scss" scoped>
-  $baseFontSize:37.5 !default;
-  @function px2rem($px){
-    @return $px / $baseFontSize * 1rem;
-  }
+<style type="text/scss" lang="scss" rel="stylesheet/scss" scoped>
 
   #mask {
     position: fixed;
@@ -49,19 +50,19 @@ export default {
 
   #mask .hello {
     background-repeat: no-repeat;
-    width: px2rem(75);
-    height: px2rem(91.4);
+    width: 75px;
+    height: 91.4px;
     background-size: cover;
-    margin-left: px2rem(-37.5);
+    margin-left: -37.5px;
     position: absolute;
     left: 50%;
-    top: 1.5rem;
+    top: 80px;
   }
 
   #mask .array {
     background: url("../images/guide-order.png") no-repeat;
-    width: px2rem(58.6);
-    height: px2rem(58.6);
+    width: 58.6px;
+    height: 58.6px;
     background-size: cover;
     position: absolute;
     right: 10%;
@@ -69,7 +70,7 @@ export default {
 
   #mask p {
     text-align: center;
-    font-size: px2rem(15.8);
-    margin-top: px2rem(168);
+    font-size: 15.8px;
+    margin-top: 190px;
   }
 </style>

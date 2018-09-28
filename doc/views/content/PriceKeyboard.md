@@ -12,6 +12,7 @@ npm install @2dfire/PriceKeyboard --save-dev
 // 在全局引用
 import Vue from 'vue'
 import PriceKeyboard from '@2dfire/PriceKeyboard'
+import '@2dfire/PriceKeyboard/dist/style.css'
 Vue.component(PriceKeyboard.name, PriceKeyboard)
 ```
 

@@ -12,6 +12,7 @@ npm install @2dfire/OpenApp --save-dev
 // 在全局引用
 import Vue from 'vue'
 import OpenApp from '@2dfire/OpenApp'
+import '@2dfire/OpenApp/dist/style.css'
 Vue.component(OpenApp.name, OpenApp)
 ```
 
@@ -40,7 +41,7 @@ export default{
 | maskbgurl        | 跳转页小动物的背景（非必选） |String | 灰太狼
 
 
-### Events
+### 事件
 
 | name | Description   |
 | :--------:   | -----  |

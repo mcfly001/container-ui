@@ -3,7 +3,10 @@
     <a href="javascript:void(0)" @click="openApp">
       <slot></slot>
     </a>
-    <middle-page :showfloat="showfloat" :maskbgurl="options.maskbgurl"></middle-page>
+    <middle-page :showfloat="showfloat"
+                 :maskbgurl="options.maskbgurl"
+                 @close-mask="closeMask">
+    </middle-page>
   </div>
 </template>
 
@@ -41,6 +44,9 @@
           return
         }
         openApp(schemaurl, iosdlurl, androiddlurl, getLatestAndroidUrl)
+      },
+      closeMask(){
+        this.showfloat = false
       }
     },
     components: {
