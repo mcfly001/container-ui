@@ -1,6 +1,6 @@
 {
 	"name": "@2dfire/PriceKeyboard",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "This is a UI repository based by vue. ",
 	"main": "dist/index.js",
 	"author": {
