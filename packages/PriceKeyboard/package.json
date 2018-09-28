@@ -1,8 +1,8 @@
 {
-	"name": "@2dfire/PricePopup",
-	"version": "0.0.4",
+	"name": "@2dfire/PriceKeyboard",
+	"version": "0.0.0",
 	"description": "This is a UI repository based by vue. ",
-	"main": "src/index.js",
+	"main": "dist/index.js",
 	"author": {
 		"name": "douchi",
 		"email": "douchi@2dfire.com"
@@ -45,7 +45,7 @@
 	},
 	"files": [
 		"dist",
-		"lib",
+		"src",
 		"packages",
 		"package.json",
 		"README.md"
