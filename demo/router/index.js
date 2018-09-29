@@ -4,6 +4,7 @@ import Introduce from '../views/Introduce.vue'
 import Develop from '../views/Develop.vue'
 import OpenApp from '../views/OpenApp.vue'
 import PriceKeyboard from '../views/PriceKeyboard.vue'
+import FireUpload from '../views/FireUpload.vue'
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ let routes = [
     path: '/PriceKeyboard',
     name: 'PriceKeyboard',
     component: PriceKeyboard
+  },
+  {
+    path: '/FireUpload',
+    name: 'FireUpload',
+    component: FireUpload
   }
 ]
 

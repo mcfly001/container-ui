@@ -20,6 +20,7 @@ Vue.component(OpenApp.name, OpenApp)
 // 组件内引用
 <script>
 import OpenApp from '@2dfire/OpenApp'
+import '@2dfire/OpenApp/dist/style.css'
 export default{
     data(){
         return {}

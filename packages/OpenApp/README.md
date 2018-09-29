@@ -1,9 +1,9 @@
-# vue-open-app
+# open-app
 
 ## 安装
 
 ```JS
-npm install @2dfire/vue-OpenApp --save-dev
+npm install @2dfire/OpenApp --save-dev
 ```
 
 ## 引用
@@ -11,8 +11,25 @@ npm install @2dfire/vue-OpenApp --save-dev
 ``` javascript
 // 在全局引用
 import Vue from 'vue'
-import OpenApp from '@2dfire/vue-OpenApp'
-Vue.use(OpenApp)
+import OpenApp from '@2dfire/OpenApp'
+import '@2dfire/OpenApp/dist/style.css'
+Vue.component(OpenApp.name, OpenApp)
+```
+
+``` javascript
+// 组件内引用
+<script>
+import OpenApp from '@2dfire/OpenApp'
+import '@2dfire/OpenApp/dist/style.css'
+export default{
+    data(){
+        return {}
+    },
+    components: {
+        OpenApp
+    }
+}
+</script>
 ```
 
 ### 配置项
@@ -25,7 +42,7 @@ Vue.use(OpenApp)
 | maskbgurl        | 跳转页小动物的背景（非必选） |String | 灰太狼
 
 
-### Events
+### 事件
 
 | name | Description   |
 | :--------:   | -----  |
@@ -63,6 +80,3 @@ export default{
         }
     }
 ```
-
-### 案例
-[demo](http://git.2dfire-inc.com/static/static-hercules/tree/master/src/loan/views/LoanApply.vue)

@@ -20,6 +20,7 @@ Vue.component(PriceKeyboard.name, PriceKeyboard)
 // 组件内引用
 <script>
 import PriceKeyboard from '@2dfire/PriceKeyboard'
+import '@2dfire/PriceKeyboard/dist/style.css'
 export default{
     data(){
         return {}
