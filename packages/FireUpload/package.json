@@ -1,6 +1,6 @@
 {
 	"name": "@2dfire/FireUpload",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "This is a UI repository based by vue. ",
 	"main": "dist/index.js",
 	"author": {
