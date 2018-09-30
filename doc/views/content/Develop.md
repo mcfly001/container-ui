@@ -44,7 +44,7 @@ npm run demo_dev
 npm run dev
 
 // 打包文档
-npm run doc_build
+npm run doc_build <组件名>
 
 // 打包案例
 npm run demo_build
