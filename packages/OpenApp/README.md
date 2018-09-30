@@ -1,4 +1,4 @@
-# open-app
+# open-app （h5唤醒app）
 
 ## 安装
 

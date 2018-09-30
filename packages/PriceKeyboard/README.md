@@ -1,4 +1,4 @@
-# PriceKeyboard
+# PriceKeyboard（数字弹出窗，用于输入价格）
 
 ## 安装
 
