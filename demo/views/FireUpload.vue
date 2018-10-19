@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="margin-top: 40px;">案例二</div>
+    <div style="margin-top: 40px;">案例</div>
     <div class="upload">
       <ul>
         <li v-for="(item, $index) in uploadList" :key="$index">
@@ -13,12 +13,13 @@
       <FireUpload ref="upload"
                   :action="action"
                   :accept="accept"
+                  :on-before-upload="beforeUpload"
                   :max-size="maxSize"
-                  @on-size-error="sizeError"
-                  @on-accept-error="acceptError"
-                  @on-progress="uploadProgress"
-                  @on-success="uploadSuccess"
-                  @on-error="uploadError">
+                  :on-size-error="sizeError"
+                  :on-accept-error="acceptError"
+                  :on-progress="uploadProgress"
+                  :on-success="uploadSuccess"
+                  :on-upload-error="uploadError">
         <span class="icon"> + </span>
       </FireUpload>
     </div>
@@ -26,44 +27,48 @@
 </template>
 
 <script>
-  import FireUpload from 'packages/FireUpload/src/index.js'
-  export default {
-    data(){
-      return {
-        action: 'http://gateway.2dfire-daily.com/?app_key=200017&method=com.dfire.soa.boss.centerpc.file.service.IUploadFileService.upload&projectName=zmfile&path=99225967/menu&s_os=Mac%20OS&s_osv=10.13.6&s_ep=Chrome&s_epv=68.0.3440.106&s_sc=1440*743&timestamp=1537322001647&s_web=1&v=1.0&format=json&env=333&lang=zh_CN',
-        maxSize: 10,
-        accept: ['jpeg', 'png', 'gif', 'jpg'],
-        uploadList: [
-          {
-            name: '1.jpg',
-            url: 'https://o5wwk8baw.qnssl.com/a42bdcc1178e62b4694c830f028db5c0/avatar'
-          },
-          {
-            name: '3.jpg',
-            url: 'https://o5wwk8baw.qnssl.com/bc7521e033abdd1e92222d733590f104/avatar'
-          }
-        ],
-        progress: '',
-        isUploading: false
-      }
+import FireUpload from 'packages/FireUpload/src/index.js'
+export default {
+  data(){
+    return {
+      action: 'http://gateway.2dfire-daily.com/?app_key=200017&method=com.dfire.soa.boss.centerpc.file.service.IUploadFileService.upload&projectName=zmfile&path=99225967/menu&s_os=Mac%20OS&s_osv=10.13.6&s_ep=Chrome&s_epv=68.0.3440.106&s_sc=1440*743&timestamp=1537322001647&s_web=1&v=1.0&format=json&env=333&lang=zh_CN',
+      maxSize: 10,
+      accept: ['jpeg', 'png', 'gif', 'jpg'],
+      uploadList: [
+        {
+          name: '1.jpg',
+          url: 'https://o5wwk8baw.qnssl.com/a42bdcc1178e62b4694c830f028db5c0/avatar'
+        },
+        {
+          name: '3.jpg',
+          url: 'https://o5wwk8baw.qnssl.com/bc7521e033abdd1e92222d733590f104/avatar'
+        }
+      ],
+      progress: '',
+      isUploading: false
+    }
+  },
+  methods: {
+    sizeError(){
+      console.log('图片不能超过10m')
     },
-    methods: {
-      sizeError(){
-        console.log('图片不能超过10m')
-      },
-      acceptError(){
-        console.log('类型错误')
-      },
-      uploadProgress(value){
-        if(value < 99){
-          this.progress = value + '%'
-        }
-        else{
-          this.progress = '99%'
-        }
-        this.isUploading = true
-      },
-      uploadSuccess(data){
+    beforeUpload(){
+      return true
+    },
+    acceptError(){
+      console.log('类型错误')
+    },
+    uploadProgress(value){
+      if(value < 99){
+        this.progress = value + '%'
+      }
+      else{
+        this.progress = '99%'
+      }
+      this.isUploading = true
+    },
+    uploadSuccess(data){
+      if(data.data && data.data.data){
         // 图片预加载
         let img = new Image()
         img.src = 'https://ifiletest.2dfire.com/' + data.data.data
@@ -80,17 +85,21 @@
             this.uploadList.push({url: 'https://ifiletest.2dfire.com/' + data.data.data})
           }
         }
-        this.progress = ''
-      },
-      uploadError(e){
-        this.isUploading = false
-        this.progress = ''
       }
+      else{
+        this.isUploading = false
+      }
+      this.progress = ''
     },
-    components: {
-      FireUpload
+    uploadError(e){
+      this.isUploading = false
+      this.progress = ''
     }
+  },
+  components: {
+    FireUpload
   }
+}
 </script>
 
 <style type="text/scss" lang="scss" rel="stylesheet/scss" scoped>

@@ -4,7 +4,7 @@
     <input type="file"
            ref="uploadInput"
            accept="image/*"
-           @change="handleChange($event)" />
+           @change="handleChange($event)"/>
   </div>
 </template>
 
@@ -26,20 +26,38 @@ export default {
       default(){
         return []
       }
+    },
+    onBeforeUpload: {
+      type: Function
+    },
+    onSizeError: {
+      type: Function
+    },
+    onAcceptError: {
+      type: Function
+    },
+    onProgress: {
+      type: Function
+    },
+    onSuccess: {
+      type: Function
+    },
+    onUploadError: {
+      type: Function
     }
   },
   methods: {
     handleChange(event){
       let file = event.target.files[0]
-      if(file){
+      if (file) {
         const checkSize = file.size > this.maxSize * 1024 * 1024
         const checkImgType = this.accept.indexOf(file.type.split("/")[1]) < 0
-        if(checkSize){
-          this.$emit('on-size-error')
+        if (checkSize) {
+          this.onSizeError()
           return
         }
-        if(checkImgType){
-          this.$emit('on-accept-error')
+        if (checkImgType) {
+          this.onAcceptError()
           return
         }
         this.submitFormData(file)
@@ -50,18 +68,21 @@ export default {
     submitFormData(file){
       let self = this
       let param = new FormData()
-      let headers = { "Content-Type": "multipart/form-data;" }
+      let headers = {"Content-Type": "multipart/form-data;"}
       param.append('file', file)
-      request(this.action, param, headers, function (e) {
+      let spec = this.onBeforeUpload()
+      if (spec) {
+        request(this.action, param, headers, function (e) {
           let progress = Math.round(e.loaded / e.total * 100)
-          if(progress){
-            self.$emit('on-progress', progress)
+          if (progress) {
+            self.onProgress(progress)
           }
-      }).then(data => {
-        data.data && self.$emit('on-success', data.data)
-      }).catch(e => {
-        self.$emit('on-error', e)
-      })
+        }).then(data => {
+          data.data && self.onSuccess(data.data)
+        }).catch(e => {
+          self.onUploadError(e)
+        })
+      }
     }
   }
 }
@@ -87,9 +108,10 @@ export default {
       bottom: 0;
       opacity: 0;
       overflow: hidden;
+      color: transparent;
     }
 
-    .icon{
+    .icon {
       position: absolute;
       top: 50%;
       left: 50%;
