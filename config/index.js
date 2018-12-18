@@ -5,7 +5,7 @@ const { getLocalIp } = require('./utils')
 module.exports = {
   doc_build: {
     entry: path.join(__dirname, '../doc/main.js'),
-    output: path.resolve(__dirname, '../app/public/doc'),
+    output: path.resolve(__dirname, '../app/public/container-ui/doc'),
     extract: true,
     sourceMap: true,
     usePostCSS: true,
@@ -38,7 +38,7 @@ module.exports = {
   },
   demo_build: {
     entry: path.join(__dirname, '../demo/main.js'),
-    output: path.resolve(__dirname, '../app/public/demo'),
+    output: path.resolve(__dirname, '../app/public/container-ui/demo'),
     extract: true,
     sourceMap: true,
     usePostCSS: true,
