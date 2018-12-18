@@ -13,5 +13,4 @@ yarn-error.log*
 *.sln
 /package-lock.json
 /test/unit/coverage/*
-demo/dist/*
-doc/dist/*
+app/public/*
