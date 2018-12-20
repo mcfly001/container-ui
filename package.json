@@ -57,7 +57,7 @@
     "build_package": "node build/build_package.js",
     "add": "node build/add_package.js",
     "remove": "node build/remove_package.js",
-    "dev": "node build/dev.js",
+    "dev": "npm run doc_dev & npm run demo_dev",
     "build": "npm run doc_build && npm run demo_build",
     "publish": "lerna publish"
   },

@@ -11,7 +11,7 @@ npm run add <组件名> <花名拼音>
 - 在packages/<组件名>/src 下完成组件开发
 
 ##### 步骤三
-- 在demo/views/<组件名>.vue 中编写组件case
+- 在demo/views/<组件名>.vue 中编写组件demo
 
 ##### 步骤四
 - 在doc/views/content/<组件名>.md 中编写组件文档
@@ -21,7 +21,7 @@ npm run add <组件名> <花名拼音>
 npm run build_package <组件名>
 ```
 
-##### 执行发布
+##### 执行发布（将组件通过lerna发布至私库，并且将文档发布到服务器）
 ``` javascript
 npm run publish
 ```
