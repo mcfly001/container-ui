@@ -2,7 +2,7 @@
   <div class="header-wrapper">
     <div class="header_logo"></div>
     <span>业务组件库</span>
-    <!-- <a href="javascript:void(0)" @click="jumpToBase" class="tobase">基础组件库</a> -->
+    <a href="javascript:void(0)" @click="jumpToBase" class="tobase">基础组件库</a>
   </div>
 </template>
 
