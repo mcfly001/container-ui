@@ -14,5 +14,3 @@
   
 #### 特殊说明
 - 本组件库打包的结果都是按照设计稿375作为基准，打包的结果为px，如果要转换成rem或者vw需要在具体工程中的webpack配置的less或者sass中不要忽略node_module
-
-fasdfas
